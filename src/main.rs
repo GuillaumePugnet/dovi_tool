@@ -7,7 +7,7 @@ use clap::{Parser, ValueHint};
 mod tests;
 
 mod commands;
-use commands::{Command, ConversionModeCli};
+use commands::{Command, ConversionModeCli, InjectRpuArgs};
 
 mod dovi;
 use dovi::{
@@ -20,6 +20,7 @@ use dovi::{
     rpu_extractor::RpuExtractor,
     rpu_info::RpuInfo,
     rpu_injector::RpuInjector,
+    av1_rpu_injector::Av1RpuInjector,
     CliOptions, WriteStartCodePreset,
 };
 
@@ -103,6 +104,7 @@ fn main() -> Result<()> {
         Command::Editor(args) => Editor::edit(args),
         Command::Convert(args) => Converter::convert(args, cli_options),
         Command::ExtractRpu(args) => RpuExtractor::extract_rpu(args, cli_options),
+        Command::InjectAv1Rpu(args) => Av1RpuInjector::inject_rpu(args, cli_options),
         Command::InjectRpu(args) => RpuInjector::inject_rpu(args, cli_options),
         Command::Info(args) => RpuInfo::info(args),
         Command::Generate(args) => Generator::generate(args),

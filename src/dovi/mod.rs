@@ -22,6 +22,7 @@ pub mod muxer;
 pub mod rpu_extractor;
 pub mod rpu_info;
 pub mod rpu_injector;
+pub mod av1_rpu_injector;
 
 mod general_read_write;
 mod hdr10plus_utils;

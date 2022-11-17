@@ -4,6 +4,7 @@ use predicates::prelude::*;
 
 mod hevc;
 mod rpu;
+mod av1;
 
 #[test]
 fn help() -> Result<()> {

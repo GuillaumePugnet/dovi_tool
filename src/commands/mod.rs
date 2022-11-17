@@ -10,6 +10,7 @@ mod extract_rpu;
 mod generate;
 mod info;
 mod inject_rpu;
+mod inject_av1_rpu;
 mod mux;
 
 pub use convert::ConvertArgs;
@@ -20,6 +21,7 @@ pub use extract_rpu::ExtractRpuArgs;
 pub use generate::GenerateArgs;
 pub use info::InfoArgs;
 pub use inject_rpu::InjectRpuArgs;
+pub use inject_av1_rpu::InjectAv1RpuArgs;
 pub use mux::MuxArgs;
 
 #[derive(Parser, Debug)]
@@ -43,6 +45,9 @@ pub enum Command {
 
     #[command(about = "Interleaves RPU NAL units between slices in an HEVC encoded bitstream")]
     InjectRpu(InjectRpuArgs),
+
+    #[command(about = "Interleaves RPU NAL units between slices in an AV1 encoded bitstream")]
+    InjectAv1Rpu(InjectAv1RpuArgs),    
 
     #[command(about = "Generates a binary RPU from different sources")]
     Generate(GenerateArgs),
